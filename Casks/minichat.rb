@@ -7,8 +7,18 @@ cask "minichat" do
   desc "Terminal chatbot powered by ChatGPT and OpenAI models"
   homepage "https://github.com/Icarus603/minichat"
 
-  depends_on formula: "codex"
   depends_on arch: :arm64
 
   binary "minichat"
+
+  caveats <<~EOS
+    MiniChat itself is installed by this cask.
+
+    If you want to use Sign in with ChatGPT or Sign in with Device Code,
+    install the official Codex CLI separately first:
+
+      npm install -g @openai/codex
+
+    OpenAI API key and OpenRouter API key login do not require codex.
+  EOS
 end
